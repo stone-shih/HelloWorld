@@ -5,6 +5,7 @@ public class HelloWorld {
 	public static void main(String[] args) {
 
 		System.out.println("Go to branch! and commit again!");
+		System.out.println("Add a line");
 		
 	}
 
