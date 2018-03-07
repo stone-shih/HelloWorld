@@ -6,7 +6,7 @@ public class ContCountry {
 	private	int		cont_seq;
 	private	String	abbr;
 	private	String	name;
-	private	int		popukation;
+	private	int		population;
 	
 	public int getSeq() {
 		return seq;
@@ -32,11 +32,11 @@ public class ContCountry {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getPopukation() {
-		return popukation;
+	public int getPopulation() {
+		return population;
 	}
-	public void setPopukation(int popukation) {
-		this.popukation = popukation;
+	public void setPopulation(int popukation) {
+		this.population = popukation;
 	}
 	
 }

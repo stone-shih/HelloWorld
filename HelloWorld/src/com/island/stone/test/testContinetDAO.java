@@ -17,6 +17,7 @@ public class testContinetDAO {
 		l = (List<ContinentDao>) ctDao.findAll();
 		
 		Assert.assertNotNull(l);
+		Assert.assertNotEquals(0, l.size());
 		
 	}
 
