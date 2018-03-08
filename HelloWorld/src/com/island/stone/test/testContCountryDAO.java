@@ -22,5 +22,16 @@ public class testContCountryDAO {
 		Assert.assertNotNull(l);
 		
 	}
-
+	
+	@Test
+	public void testFindByAbbr() {
+		
+		List<ContCountry>	l = null;
+		ContCountryDao	ctDao = new ContCountryDao();	
+		l = (List<ContCountry>) ctDao.findByContAbbr("AS");
+		
+		Assert.assertNotNull(l);
+		Assert.assertNotEquals(0, l.size());
+		
+	}
 }
