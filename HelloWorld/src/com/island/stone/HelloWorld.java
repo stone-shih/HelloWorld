@@ -15,10 +15,22 @@ public class HelloWorld {
 		rtn = format(fmt, arg);
 		return rtn;
 	}
-	
 	public static	void	printContinent() {
 		
-		ResultSet	rs = OracleDB.runQuery("select * from continent");
+		printContinent("all");
+		
+	}
+	public static	void	printContinent(String abbr) {
+		
+		ResultSet	rs;
+		
+		if ( abbr.equals("all") ) {
+			ResultSet	rs1 = OracleDB.runQuery("select * from continent");
+			rs = rs1;
+		} else {
+			ResultSet	rs1 = OracleDB.runQuery("select * from continent where abbr = '" + abbr + "'");	
+			rs = rs1;
+		}
 		
 		
 		try {
@@ -42,9 +54,14 @@ public class HelloWorld {
 	}
 
 	public static void main(String[] args) {
-		
-		printContinent();
-		
+		String arg1 = "";
+		if ( args.length == 1) printContinent("all");
+		if ( args.length >= 2) arg1 = args[1];
+		if ( ( arg1.length() != 0 ) && ( arg1.equals("all")) ) {
+			printContinent("all");
+		}else if ( ( arg1.length() != 0 ) && ( ! arg1.equals("all")) ) {
+			printContinent(arg1);
+		}
 	}
 
 }

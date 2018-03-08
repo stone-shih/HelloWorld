@@ -39,5 +39,34 @@ public class ContCountryDao {
 		
 		return rtn;
 	}
+	
+	public List<ContCountry>	findAllByContSeq(int cont_seq) {
+		
+		ResultSet	rs = OracleDB.runQuery("select * from cont_country where cont_seq = " + cont_seq);
+		if ( rs == null ) return null;
+		
+		List<ContCountry>	rtn = new ArrayList<ContCountry>();
+		
+		try {
+			while(rs.next()) {
+				
+				ContCountry	ct = new ContCountry();
+				ct.setSeq(rs.getInt("seq"));
+				ct.setCont_seq(rs.getInt("cont_seq"));
+				ct.setAbbr(rs.getString("abbr"));
+				ct.setName(rs.getString("name"));
+				ct.setPopulation(rs.getInt("population"));
+				
+				rtn.add(ct);
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return rtn;
+		
+	}
 
 }

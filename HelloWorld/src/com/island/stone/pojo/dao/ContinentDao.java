@@ -8,7 +8,9 @@ import 	java.util.ArrayList;
 import 	java.util.List;
 
 public class ContinentDao {
-		
+	
+	@SuppressWarnings("rawtypes")	
+	
 	public	List	findAll() {
 		
 		ResultSet	rs = OracleDB.runQuery("select * from continent");
